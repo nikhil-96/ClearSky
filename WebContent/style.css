@@ -1,0 +1,28 @@
+@charset "ISO-8859-1";
+
+body{
+    background: #fff;
+   }
+   .container{
+    margin-top: 0px;
+    text-align: center;
+   }
+   .glyphicon-search{
+    font-size: 20px;
+   }
+   .btn{
+    width: 100px;
+    padding: 12.5px;
+   }
+   .form-control{
+    padding: 25px;
+    font-size: 20px;
+   }
+ .floating-box {
+    display: inline-block;
+    width: 50em;
+    margin: 10px;  
+}
+.addtofav {
+	vertical-align: top;
+}
