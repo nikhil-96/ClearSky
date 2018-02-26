@@ -27,12 +27,7 @@ $(document).ready(function(){
 	});
 });
 
-var temp;
-
 var show = function(data){
-	
-	temp = data.main.temp;
-	
 	return 	"<h4><strong>Current Weather for </strong> "+data.name + "," + data.sys.country +" " +"(" +data.coord.lat +"," +data.coord.lon +")"+"</h4>" +
 			"<h5><strong>Weather</strong>: "+ data.weather[0].main +"</h5>" +
 			"<h5><strong>Description</strong>: "+ data.weather[0].description +"</h5>" +
@@ -65,7 +60,7 @@ function callServletWithAjax(){
 		}
 	};
 	
-	var params = "temp="+temp;
+	var params = "city="+document.getElementById("city").value;
 	xmlhttp.open('GET',"/ClearSky/Favourites?"+params, true);
 	xmlhttp.send();
 }

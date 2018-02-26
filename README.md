@@ -1,2 +1,0 @@
-# ClearSky
-Weather Application
