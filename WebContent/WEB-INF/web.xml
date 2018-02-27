@@ -9,4 +9,12 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+  <servlet-name>Favourites</servlet-name>
+  <servlet-class>Favourites</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Favourites</servlet-name>
+  <url-pattern>/Favourites</url-pattern>
+  </servlet-mapping>
 </web-app>

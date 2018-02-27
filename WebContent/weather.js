@@ -1,3 +1,5 @@
+var city
+
 $(document).ready(function(){
 
 	$('#submitWeather').click(function(){
@@ -28,7 +30,7 @@ $(document).ready(function(){
 });
 
 var show = function(data){
-	return 	"<h4><strong>Current Weather for </strong> "+data.name + "," + data.sys.country +" " +"(" +data.coord.lat +"," +data.coord.lon +")"+"</h4>" +
+	return 	"<h4 class='fun'><strong>Current Weather for </strong> "+data.name + "," + data.sys.country +" " +"(" +data.coord.lat +"," +data.coord.lon +")"+"</h4>" +
 			"<h5><strong>Weather</strong>: "+ data.weather[0].main +"</h5>" +
 			"<h5><strong>Description</strong>: "+ data.weather[0].description +"</h5>" +
 			"<h5><strong>Temperature</strong>: "+ data.main.temp + "&deg;c" +"</h5>" +
@@ -47,6 +49,7 @@ var foo = function(){
 	  button.innerHTML = 'Add to favourites';
 	  button.onclick = function(){
 		  callServletWithAjax();
+		  //alert("Button Clicked");
 	  };
 	  document.getElementById('addfav').appendChild(button);
 	};
@@ -55,12 +58,12 @@ function callServletWithAjax(){
 	var xmlhttp = new XMLHttpRequest();
 	
 	xmlhttp.onreadystatechange = function(){
-		if(xmlhttp.readystate == 4 && xmlhttp.status == 200){
+		if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
 			document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
 		}
 	};
 	
 	var params = "city="+document.getElementById("city").value;
-	xmlhttp.open('GET',"/ClearSky/Favourites?"+params, true);
+	xmlhttp.open('GET',"http://localhost:8080/ClearSky/Favourites?"+params, true);
 	xmlhttp.send();
 }
