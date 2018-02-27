@@ -54,8 +54,8 @@ public class Favourites extends HttpServlet {
 		
 		try {
 			
-			FileWriter jsonFileWriter = new FileWriter("fav.json");
-			System.out.println(info.toString());
+			FileWriter jsonFileWriter = new FileWriter("C:\\Users\\Nikhil\\Documents\\Workspace\\ClearSky\\src\\fav.json");
+			//System.out.println(info.toString());
 			jsonFileWriter.write(info.toString());
 			jsonFileWriter.flush();
 			jsonFileWriter.close();
