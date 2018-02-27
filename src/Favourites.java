@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -7,9 +5,9 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponse;/*
 import org.json.JSONArray;
-import org.json.JSONObject;
+import org.json.JSONObject;*/
 
 /**
  * Servlet implementation class Favourites
@@ -37,7 +35,7 @@ public class Favourites extends HttpServlet {
 //		String s=request.getParameter("fun");
 		
 //		out.println("yues");
-		JSONObject json      = new JSONObject();
+	/*	JSONObject json      = new JSONObject();
 		JSONArray  addresses = new JSONArray();
 		JSONObject address;
 		try
@@ -64,8 +62,8 @@ public class Favourites extends HttpServlet {
 		{ 
 
 		}
-		response.setContentType("application/json");
-		response.getWriter().write(json.toString());
+		response.setContentType("application/json");*/
+		response.getWriter().write(request.getParameter("city"));
 	}
 
 	/**

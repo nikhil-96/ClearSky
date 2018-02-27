@@ -1,4 +1,4 @@
-var city
+var city,weather,temp,min_temp,max_temp,wind_speed;
 
 $(document).ready(function(){
 
@@ -30,7 +30,15 @@ $(document).ready(function(){
 });
 
 var show = function(data){
-	return 	"<h4 class='fun'><strong>Current Weather for </strong> "+data.name + "," + data.sys.country +" " +"(" +data.coord.lat +"," +data.coord.lon +")"+"</h4>" +
+	
+	city = data.name +","+ data.sys.country;
+	weather = data.weather[0].main;
+	temp = data.main.temp;
+	min_temp = data.main.temp_min;
+	max_temp = data.main.temp_max;
+	wind_speed = data.wind.speed;
+	
+	return 	"<h4><strong>Current Weather for </strong> "+data.name + "," + data.sys.country +" " +"(" +data.coord.lat +"," +data.coord.lon +")"+"</h4>" +
 			"<h5><strong>Weather</strong>: "+ data.weather[0].main +"</h5>" +
 			"<h5><strong>Description</strong>: "+ data.weather[0].description +"</h5>" +
 			"<h5><strong>Temperature</strong>: "+ data.main.temp + "&deg;c" +"</h5>" +
@@ -63,7 +71,7 @@ function callServletWithAjax(){
 		}
 	};
 	
-	var params = "city="+document.getElementById("city").value;
+	var params = "city=" +city+ "&weather=" +weather+ "&temp=" +temp+ "&min_temp=" +min_temp+ "&max_temp=" +max_temp+ "&wind_speed="+wind_speed;
 	xmlhttp.open('GET',"http://localhost:8080/ClearSky/Favourites?"+params, true);
 	xmlhttp.send();
 }
