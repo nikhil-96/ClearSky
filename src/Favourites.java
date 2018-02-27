@@ -1,3 +1,4 @@
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -5,9 +6,10 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;/*
+import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
-import org.json.JSONObject;*/
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Servlet implementation class Favourites
@@ -35,35 +37,34 @@ public class Favourites extends HttpServlet {
 //		String s=request.getParameter("fun");
 		
 //		out.println("yues");
-	/*	JSONObject json      = new JSONObject();
+		JSONObject info = new JSONObject();
 		JSONArray  addresses = new JSONArray();
-		JSONObject address;
-		try
-		{
-		   int count = 15;
-
-		   for (int i=0 ; i<count ; i++)
-		   {
-		       address = new JSONObject();
-		       address.put("CustomerName"     , "Decepticons" + i);
-		       address.put("AccountId"        , "1999" + i);
-		       address.put("SiteId"           , "1888" + i);
-		       address.put("Number"            , "7" + i);
-		       address.put("Building"          , "StarScream Skyscraper" + i);
-		       address.put("Street"            , "Devestator Avenue" + i);
-		       address.put("City"              , "Megatron City" + i);
-		       address.put("ZipCode"          , "ZZ00 XX1" + i);
-		       address.put("Country"           , "CyberTron" + i);
-		       addresses.put(address);
-		   }
-		   json.put("Addresses", addresses);
+				
+		try {
+			info.put("city",request.getParameter("city"));
+			info.put("weather",request.getParameter("weather"));
+			info.put("temp",request.getParameter("temp"));
+			info.put("min_temp",request.getParameter("min_temp"));
+			info.put("max_temp",request.getParameter("max_temp"));
+			info.put("wind_speed",request.getParameter("wind_speed"));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		catch (Exception jse)
-		{ 
-
+		
+		try {
+			
+			FileWriter jsonFileWriter = new FileWriter("fav.json",true);
+			jsonFileWriter.write(info.toString());
+			jsonFileWriter.flush();
+			jsonFileWriter.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			response.setContentType("application/json");
+			response.getWriter().write(info.toString());
 		}
-		response.setContentType("application/json");*/
-		response.getWriter().write(request.getParameter("city"));
 	}
 
 	/**
