@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  * Servlet implementation class Favourites
@@ -17,6 +21,8 @@ import org.json.JSONObject;
 @WebServlet("/Favourites")
 public class Favourites extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static int count;
+	private String path = "C:\\Users\\Nikhil\\Documents\\Workspace\\ClearSky\\src\\fav.json";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -30,41 +36,48 @@ public class Favourites extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		String city = request.getParameter("city");
 		
-//		PrintWriter out = response.getWriter();
-//		String s=request.getParameter("fun");
+		JSONObject main = new JSONObject();
+		JSONArray  cities = new JSONArray();
+		JSONObject city = new JSONObject();
 		
-//		out.println("yues");
-		JSONObject info = new JSONObject();
-		JSONArray  addresses = new JSONArray();
+			JSONParser parser = new JSONParser();
+		    try {
+				main = (JSONObject) parser.parse(new FileReader(path));
+				this.count = Integer.parseInt(String.valueOf(main.get("Count")));
 				
-		try {
-			info.put("city",request.getParameter("city"));
-			info.put("weather",request.getParameter("weather"));
-			info.put("temp",request.getParameter("temp"));
-			info.put("min_temp",request.getParameter("min_temp"));
-			info.put("max_temp",request.getParameter("max_temp"));
-			info.put("wind_speed",request.getParameter("wind_speed"));
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+				//System.out.println(this.count);
+				cities = (JSONArray) main.get("cities");
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
 		
 		try {
+			count++;
+			main.put("Count",count );
+			city.put("city",request.getParameter("city"));
+			city.put("weather",request.getParameter("weather"));
+			city.put("temp",request.getParameter("temp"));
+			city.put("min_temp",request.getParameter("min_temp"));
+			city.put("max_temp",request.getParameter("max_temp"));
+			city.put("wind_speed",request.getParameter("wind_speed"));
+			cities.add(city);
+			main.put("cities",cities);
 			
-			FileWriter jsonFileWriter = new FileWriter("C:\\Users\\Nikhil\\Documents\\Workspace\\ClearSky\\src\\fav.json");
+			FileWriter jsonFileWriter = new FileWriter(path);
 			//System.out.println(info.toString());
-			jsonFileWriter.write(info.toString());
+			jsonFileWriter.write(main.toString());
 			jsonFileWriter.flush();
 			jsonFileWriter.close();
 			
 		} catch (Exception e) {
+			
 			e.printStackTrace();
 		} finally {
 			response.setContentType("application/json");
-			response.getWriter().write(info.toString());
+			response.getWriter().write(main.toString());
 		}
 	}
 
