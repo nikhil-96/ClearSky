@@ -21,15 +21,24 @@ $(document).ready(function() {
 				wind_speed = data.wind.speed;
 				humidity = data.main.humidity;
 				
-				document.getElementById("cityname1").innerHTML = data.name +","+ data.sys.country;
-				document.getElementById("temp").innerHTML = temp +"<sup>o</sup>C";
-				document.getElementById("icon").innerHTML = "<img src='http://openweathermap.org/img/w/10d.png'>";
-				document.getElementById("weather").innerHTML = weather;
-				document.getElementById("wind_speed").innerHTML = "<img src='images/icon-wind.png'>" +wind_speed +"Km/h";
-				document.getElementById("cityname").innerHTML = city;
-				document.getElementById("humidity").innerHTML = "<img src='images/icon-umberella.png'>" +humidity +"%";
-				document.getElementById("compass").innerHTML = "<img src='images/icon-compass.png'>" + "East";
-
+				var cardObj = "";
+				
+				cardObj += "<div class='forecast-content'>";
+				cardObj+= "<div class='location'>" +data.name +","+ data.sys.country +"</div>";
+				cardObj+= "<div class='degree'>";
+				cardObj+= "<div class='num'>"+temp +"<sup>o</sup>C" + "</div>";
+				cardObj+= "<div class='forecast-icon'>" +"<img src='http://openweathermap.org/img/w/10d.png'>" + "</div>";
+				cardObj+= "<div>";
+				cardObj+= "<span>"+weather+"</span>";
+				cardObj+= "<span>"+"<img src='images/icon-wind.png'>" +wind_speed +"Km/h"+"</span>";
+				cardObj+= "<span>"+"<img src='images/icon-umberella.png'>" +humidity +"%"+"</span>";
+				cardObj+= "<span>"+"<img src='images/icon-compass.png'>" + "East"+"</span>";
+				cardObj+= "</div>";
+				cardObj+= "</div>";
+				cardObj+= "</div>";
+				
+				document.getElementById("card").innerHTML = cardObj;
+				
 				var button = document.createElement("button");
 				
 				button.innerHTML = "Add to favourites";

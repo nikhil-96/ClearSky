@@ -61,33 +61,14 @@
 			<div class="forecast-table">
 				<div class="container">
 					<div class="forecast-container">
-						<div class="today forecast">
-							<div class="forecast-header">
-								<div class="day">Monday</div>
-								<div class="date">6 Oct</div>
-							</div>
-							<div class="forecast-content">
-								<div class="location" id="cityname1"></div>
-								<div class="degree">
-									<div class="num" id="temp"></div>
-									<div class="forecast-icon" id="icon">
-									</div>	
-									<div>
-									<span id="weather"></span>
-								<span  id="wind_speed"></span>
-								<span id="compass"></span>
-								<span id="humidity"></span>
-									</div>
-								</div>
-								
-							</div>
-							<div id="addfav" class="floating-box addtofav"></div>
+						<div class="today forecast" id="card">
 						</div>
 					</div>
+					<div id="addfav" class="favbutton"></div>
 				</div>
 			</div>
 	 			<div id="myDiv" class="floating-box addtofav"></div>  
-
+			<br><br><br><br><br>
 			<footer class="site-footer">
 				<div class="container">
 					<div class="row">

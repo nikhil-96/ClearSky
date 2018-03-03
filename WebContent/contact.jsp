@@ -55,7 +55,7 @@
 			<main class="main-content">
 				<div class="container">
 					<div class="breadcrumb">
-						<a href="index.html">Home</a>
+						<a href="index.jsp">Home</a>
 						<span>Contact</span>
 					</div>
 				</div>
@@ -64,22 +64,21 @@
 					<div class="container">
 						<div class="col-md-5">
 							<div class="contact-details">
-								<div class="map" data-latitude="-6.897789" data-longitude="107.621735"></div>
 								<div class="contact-info">
 									<address>
 										<img src="images/icon-marker.png" alt="">
-										<p>Company Name INC. <br>
-										2803 Avenue Street, Los Angeles</p>
+										<p>Clear Sky INC. <br>
+										320J, Sector 21-A, Gurugram, India</p>
 									</address>
 									
-									<a href="#"><img src="images/icon-phone.png" alt="">+1 800 314 235</a>
-									<a href="#"><img src="images/icon-envelope.png" alt="">contact@companyname.com</a>
+									<a href="#"><img src="images/icon-phone.png" alt="">+91 8725960954</a>
+									<a href="#"><img src="images/icon-envelope.png" alt="">contact@clearsky.com</a>
 								</div>
 							</div>
 						</div>
 						<div class="col-md-6 col-md-offset-1">
 							<h2 class="section-title">Contact us</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consectetur inventore ducimus, facilis, numquam id soluta omnis eius recusandae nesciunt vero repellat harum cum. Nisi facilis odit hic, ipsum sed!</p>
+							<p>We would love to hear from you.</p>
 							<form action="#" class="contact-form">
 								<div class="row">
 									<div class="col-md-6"><input type="text" placeholder="Your name..."></div>
@@ -128,7 +127,7 @@
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
 		<script src="js/plugins.js"></script>
-		<script src="js/app.js"></script>
+		<script src="app.js"></script>
 		
 	</body>
 
