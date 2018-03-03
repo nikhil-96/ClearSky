@@ -21,7 +21,7 @@ import org.json.simple.parser.ParseException;
 @WebServlet("/Favourites")
 public class Favourites extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static int count;
+	private int count;
 	private String path = "C:\\Users\\Nikhil\\Documents\\Workspace\\ClearSky\\src\\fav.json";
        
     /**
@@ -37,48 +37,67 @@ public class Favourites extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		JSONObject main = new JSONObject();
-		JSONArray  cities = new JSONArray();
-		JSONObject city = new JSONObject();
+		String action=request.getParameter("action");
+		System.out.println("here" +action);
 		
-			JSONParser parser = new JSONParser();
-		    try {
-				main = (JSONObject) parser.parse(new FileReader(path));
-				this.count = Integer.parseInt(String.valueOf(main.get("Count")));
+		if(action.equalsIgnoreCase("add"))
+		{
+			JSONObject main = new JSONObject();
+			JSONArray  cities = new JSONArray();
+			JSONObject city = new JSONObject();
+			
+				JSONParser parser = new JSONParser();
+			    try {
+					main = (JSONObject) parser.parse(new FileReader(path));
+					this.count = Integer.parseInt(String.valueOf(main.get("Count")));
+					
+					//System.out.println(this.count);
+					cities = (JSONArray) main.get("cities");
+					
+				} catch (Exception e) {
+					
+					e.printStackTrace();
+				}
+			
+			try {
+				count++;
+				main.put("Count",count );
+				city.put("city",request.getParameter("city"));
+				city.put("weather",request.getParameter("weather"));
+				city.put("temp",request.getParameter("temp"));
+				city.put("min_temp",request.getParameter("min_temp"));
+				city.put("max_temp",request.getParameter("max_temp"));
+				city.put("wind_speed",request.getParameter("wind_speed"));
+				cities.add(city);
+				main.put("cities",cities);
 				
-				//System.out.println(this.count);
-				cities = (JSONArray) main.get("cities");
+				FileWriter jsonFileWriter = new FileWriter(path);
+				//System.out.println(info.toString());
+				jsonFileWriter.write(main.toString());
+				jsonFileWriter.flush();
+				jsonFileWriter.close();
 				
 			} catch (Exception e) {
 				
 				e.printStackTrace();
+			} finally {
+				response.setContentType("application/json");
+				response.getWriter().write(main.toString());	
 			}
-		
-		try {
-			count++;
-			main.put("Count",count );
-			city.put("city",request.getParameter("city"));
-			city.put("weather",request.getParameter("weather"));
-			city.put("temp",request.getParameter("temp"));
-			city.put("min_temp",request.getParameter("min_temp"));
-			city.put("max_temp",request.getParameter("max_temp"));
-			city.put("wind_speed",request.getParameter("wind_speed"));
-			cities.add(city);
-			main.put("cities",cities);
-			
-			FileWriter jsonFileWriter = new FileWriter(path);
-			//System.out.println(info.toString());
-			jsonFileWriter.write(main.toString());
-			jsonFileWriter.flush();
-			jsonFileWriter.close();
-			
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		} finally {
-			response.setContentType("application/json");
-			response.getWriter().write(main.toString());
 		}
+		
+		if(action.equalsIgnoreCase("view"))
+		{
+			JSONParser parser = new JSONParser();
+			try {
+				JSONObject main = (JSONObject) parser.parse(new FileReader(path));
+				response.setContentType("application/json");
+				response.getWriter().write(main.toString());	
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}	
+		}
+		
 	}
 
 	/**

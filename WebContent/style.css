@@ -1,5 +1,5 @@
 @charset "ISO-8859-1";
-
+	
 article,
 aside,
 details,
@@ -260,7 +260,6 @@ form textarea {
   height: 220px; }
 
 .container {
- display: inline-block;
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
@@ -1265,7 +1264,7 @@ form textarea {
         display: inline-block;
         vertical-align: middle; }
       .forecast-container .forecast.today .degree .num {
-        font-size: 90px;
+        font-size: 70px;
         font-size: 6.4285714286rem;
         margin-right: 30px; }
       .forecast-container .forecast.today span {

@@ -20,10 +20,12 @@
 		<script src="js/ie-support/html5.js"></script>
 		<script src="js/ie-support/respond.js"></script>
 		<![endif]-->
+		<script src="weather.js"></script>
 
 	</head>
 
-	<body>
+
+	<body onLoad='readJSON()'>
 		
 		<div class="site-content">
 			<div class="site-header">
@@ -31,8 +33,8 @@
 					<a href="index.html" class="branding">
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-type">
-							<h1 class="site-title">ClearSky</h1>
-							<small class="site-description">Weather Application</small>
+							<h1 class="site-title">Company name</h1>
+							<small class="site-description">tagline goes here</small>
 						</div>
 					</a>
 
@@ -40,8 +42,8 @@
 					<div class="main-navigation">
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
-							<li class="menu-item current-menu-item"><a href="index.jsp">Home</a></li>
-							<li class="menu-item"><a href="favourites.jsp">Favourites</a></li>
+							<li class="menu-item"><a href="index.jsp">Home</a></li>
+							<li class="menu-item current-menu-item"><a href="favourites.jsp">Favourites</a></li>
 							<li class="menu-item"><a href="contact.html">Contact</a></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
@@ -51,42 +53,65 @@
 				</div>
 			</div> <!-- .site-header -->
 
-			<div class="hero" data-bg-image="images/img2.jpg">
-				<div class="container find-location">
-						<input type="text" name="city" id="city" placeholder="Enter a City">
-						<button id="submitWeather" class="btn btn-primary">Search City</button>
-				</div>
-			</div>
-		
-			<div class="forecast-table">
+			<main class="main-content">
 				<div class="container">
-					<div class="forecast-container">
-						<div class="today forecast">
-							<div class="forecast-header">
-								<div class="day">Monday</div>
-								<div class="date">6 Oct</div>
-							</div>
-							<div class="forecast-content">
-								<div class="location" id="cityname"></div>
-								<div class="degree">
-									<div class="num" id="temp"></div>
-									<div class="forecast-icon" id="icon">
-									</div>	
-									<div>
-									<span id="weather"></span>
-								<span  id="wind_speed"></span>
-								<span id="compass"></span>
-								<span id="humidity"></span>
+					<div class="breadcrumb">
+						<a href="index.jsp">Home</a>
+						<span>Photos</span>
+					</div>
+				</div>
+				
+				<div class="fullwidth-block">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="photo">
+									<div class="photo-details">
+										<div id="count0"></div>
+										<div id="temp0"></div>
+										<div id="mintemp0"></div>
+										<div id="maxtemp0"></div>
+										<div id="weather0"></div>
+										<div id="windspeed0"></div>
+									</div>
+								</div>
+								<div class="photo">
+									<div class="photo-details">
+										<div id="count1"></div>
+										<div id="temp1"></div>
+										<div id="mintemp1"></div>
+										<div id="maxtemp1"></div>
+										<div id="weather1"></div>
+										<div id="windspeed1"></div>
+									</div>
+								</div>
+								<div class="photo">
+									<div class="photo-details">
+										<div id="count1"></div>
+										<div id="temp1"></div>
+										<div id="mintemp1"></div>
+										<div id="maxtemp1"></div>
+										<div id="weather1"></div>
+										<div id="windspeed1"></div>
+									</div>
+								</div>
+								<div class="photo">
+									<div class="photo-details">
+										<div id="count1"></div>
+										<div id="temp1"></div>
+										<div id="mintemp1"></div>
+										<div id="maxtemp1"></div>
+										<div id="weather1"></div>
+										<div id="windspeed1"></div>
 									</div>
 								</div>
 								
 							</div>
-							<div id="addfav" class="floating-box addtofav"></div>
 						</div>
 					</div>
 				</div>
-			</div>
-	 			<div id="myDiv" class="floating-box addtofav"></div>  
+				
+			</main> <!-- .main-content -->
 
 			<footer class="site-footer">
 				<div class="container">
@@ -107,7 +132,7 @@
 						</div>
 					</div>
 
-					<p class="colophon">Copyright 2018 Clear Sky. Designed by Team@ClearSky. All rights reserved</p>
+					<p class="colophon">Copyright 2014 Company name. Designed by Themezy. All rights reserved</p>
 				</div>
 			</footer> <!-- .site-footer -->
 		</div>
@@ -115,12 +140,11 @@
 		<script src="js/jquery-1.11.1.min.js"></script>
 		<script src="js/plugins.js"></script>
 		<script src="js/app.js"></script>
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	
-	 <script src="weather.js"></script>
-  
-		
+
+   
 	</body>
 
 </html>
