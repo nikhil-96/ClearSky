@@ -61,7 +61,13 @@ public class Favourites extends HttpServlet {
 			
 			try {
 				count++;
+				if(count>10)
+				{
+					cities.remove(0);
+					count--;
+				}
 				main.put("Count",count );
+				System.out.println(request.getParameter("city"));
 				city.put("city",request.getParameter("city"));
 				city.put("weather",request.getParameter("weather"));
 				city.put("temp",request.getParameter("temp"));

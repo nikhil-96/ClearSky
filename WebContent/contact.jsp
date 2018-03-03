@@ -4,10 +4,10 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 		
-		<title>ClearSky</title>
+		<title>Compass Starter by Ariona, Rian</title>
 
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
@@ -20,12 +20,11 @@
 		<script src="js/ie-support/html5.js"></script>
 		<script src="js/ie-support/respond.js"></script>
 		<![endif]-->
-		<script src="weather.js"></script>
 
 	</head>
 
 
-	<body onLoad='readJSON()'>
+	<body>
 		
 		<div class="site-content">
 			<div class="site-header">
@@ -33,8 +32,8 @@
 					<a href="index.html" class="branding">
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-type">
-							<h1 class="site-title">Clear Sky</h1>
-							<small class="site-description">Weather Application</small>
+							<h1 class="site-title">Company name</h1>
+							<small class="site-description">tagline goes here</small>
 						</div>
 					</a>
 
@@ -42,9 +41,11 @@
 					<div class="main-navigation">
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
-							<li class="menu-item"><a href="index.jsp">Home</a></li>
-							<li class="menu-item current-menu-item"><a href="favourites.jsp">Favourites</a></li>
-							<li class="menu-item"><a href="contact.jsp">Contact</a></li>
+							<li class="menu-item"><a href="index.html">Home</a></li>
+							<li class="menu-item"><a href="news.html">News</a></li>
+							<li class="menu-item"><a href="live-cameras.html">Live cameras</a></li>
+							<li class="menu-item"><a href="photos.html">Photos</a></li>
+							<li class="menu-item current-menu-item"><a href="contact.html">Contact</a></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
 
@@ -56,16 +57,46 @@
 			<main class="main-content">
 				<div class="container">
 					<div class="breadcrumb">
-						<a href="index.jsp">Home</a>
-						<span>Photos</span>
+						<a href="index.html">Home</a>
+						<span>Contact</span>
 					</div>
 				</div>
-				
+
 				<div class="fullwidth-block">
 					<div class="container">
-						<div class="row" id="output">
-							<div class="col-md-6" id="output">
+						<div class="col-md-5">
+							<div class="contact-details">
+								<div class="map" data-latitude="-6.897789" data-longitude="107.621735"></div>
+								<div class="contact-info">
+									<address>
+										<img src="images/icon-marker.png" alt="">
+										<p>Company Name INC. <br>
+										2803 Avenue Street, Los Angeles</p>
+									</address>
+									
+									<a href="#"><img src="images/icon-phone.png" alt="">+1 800 314 235</a>
+									<a href="#"><img src="images/icon-envelope.png" alt="">contact@companyname.com</a>
+								</div>
 							</div>
+						</div>
+						<div class="col-md-6 col-md-offset-1">
+							<h2 class="section-title">Contact us</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consectetur inventore ducimus, facilis, numquam id soluta omnis eius recusandae nesciunt vero repellat harum cum. Nisi facilis odit hic, ipsum sed!</p>
+							<form action="#" class="contact-form">
+								<div class="row">
+									<div class="col-md-6"><input type="text" placeholder="Your name..."></div>
+									<div class="col-md-6"><input type="text" placeholder="Email Addresss..."></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6"><input type="text" placeholder="Company name..."></div>
+									<div class="col-md-6"><input type="text" placeholder="Website..."></div>
+								</div>
+								<textarea name="" placeholder="Message..."></textarea>
+								<div class="text-right">
+									<input type="submit" placeholder="Send message">
+								</div>
+							</form>
+
 						</div>
 					</div>
 				</div>
@@ -97,13 +128,10 @@
 		</div>
 		
 		<script src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
 		<script src="js/plugins.js"></script>
 		<script src="js/app.js"></script>
 		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-   
 	</body>
 
 </html>

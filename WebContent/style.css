@@ -1506,7 +1506,7 @@ form textarea {
 
 .photo {
   position: relative;
-  padding-left: 50%;
+  padding-left: 10%;
   min-height: 190px;
   border-radius: 10px;
   overflow: hidden;

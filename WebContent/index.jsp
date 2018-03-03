@@ -42,7 +42,7 @@
 						<ul class="menu">
 							<li class="menu-item current-menu-item"><a href="index.jsp">Home</a></li>
 							<li class="menu-item"><a href="favourites.jsp">Favourites</a></li>
-							<li class="menu-item"><a href="contact.html">Contact</a></li>
+							<li class="menu-item"><a href="contact.jsp">Contact</a></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
 
@@ -53,7 +53,7 @@
 
 			<div class="hero" data-bg-image="images/img2.jpg">
 				<div class="container find-location">
-						<input type="text" name="city" id="city" placeholder="Enter a City">
+						<input type="text" name="city" id="cityname" placeholder="Enter a City">
 						<button id="submitWeather" class="btn btn-primary">Search City</button>
 				</div>
 			</div>
@@ -67,7 +67,7 @@
 								<div class="date">6 Oct</div>
 							</div>
 							<div class="forecast-content">
-								<div class="location" id="cityname"></div>
+								<div class="location" id="cityname1"></div>
 								<div class="degree">
 									<div class="num" id="temp"></div>
 									<div class="forecast-icon" id="icon">

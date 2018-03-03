@@ -3,8 +3,8 @@ var city,weather,temp,min_temp,max_temp,wind_speed,humidity;
 $(document).ready(function() {
 	$("#submitWeather").click(function() {
 		var xmlHttp = new XMLHttpRequest();
-		var city = document.getElementById("city").value;
-		var url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric" +
+		var cityname = document.getElementById("cityname").value;
+		var url = "http://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&units=metric" +
 		"&appid=3cde70023f333ed0c85fca223f5de840";
 		xmlHttp.open("GET", url, true);
 		xmlHttp.send();
@@ -12,8 +12,8 @@ $(document).ready(function() {
 			if (this.readyState == 4 && this.status == 200) {
 				var data = JSON.parse(this.responseText);
 				//var dataObj = JSON.stringify(myArr);
-				alert(data);	
-				city = data.name +","+ data.sys.country;
+				alert(data);
+				city = data.name;
 				weather = data.weather[0].main;
 				temp = Math.ceil(data.main.temp);
 				min_temp = data.main.temp_min;
@@ -21,8 +21,7 @@ $(document).ready(function() {
 				wind_speed = data.wind.speed;
 				humidity = data.main.humidity;
 				
-				alert(city);
-				document.getElementById("cityname").innerHTML = city;
+				document.getElementById("cityname1").innerHTML = data.name +","+ data.sys.country;
 				document.getElementById("temp").innerHTML = temp +"<sup>o</sup>C";
 				document.getElementById("icon").innerHTML = "<img src='http://openweathermap.org/img/w/10d.png'>";
 				document.getElementById("weather").innerHTML = weather;
@@ -52,19 +51,18 @@ function addToFavourites(){
 			document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
 		}
 	};
-	
-	var params = "city=" +city+ "&weather=" +weather+ "&temp=" +temp+ "&min_temp=" +min_temp+ "&max_temp=" +max_temp+ "&wind_speed="+wind_speed + "&action=add";
+	var params = "city=" +city + "&weather=" +weather+ "&temp=" +temp+ "&min_temp=" +min_temp+ "&max_temp=" +max_temp+ "&wind_speed="+wind_speed + "&action=add";
 	xmlhttp.open('GET',"http://localhost:8080/ClearSky/Favourites?"+params, true);
 	xmlhttp.send();
 }
 
 function readJSON(){
-	alert("data loaded");
+	//alert("data loaded");
 	var request = new XMLHttpRequest();
 	request.onreadystatechange = function(){
 		if(request.readyState == 4 && request.status==200){
 			var obj=JSON.parse(request.responseText);
-			viewFavourites(obj);
+			document.getElementById("output").innerHTML = viewFavourites(obj);
 		}
 	};
 	var params = "&action=view";
@@ -74,24 +72,21 @@ function readJSON(){
 
 function viewFavourites(data){
 	var len = data.Count;
-	/*var movieObj="";
-	 for(var i=0;i<len;i++){
-	        movieObj+="<p class='nested_para'>";
-	        movieObj+="Title:" + data.movies[i].title + "<br>";
-	        movieObj+= "Release date: " + data.movies[i].release_date + "<br>";
-	        movieObj+= "Rating: " + data.movies[i].rating + "<br>";
-	        if(data.movies[i].overview.length!=0){
-	            movieObj+= "Overview: " + data.movies[i].overview + "<br>";
-	        }
-	        movieObj+="</p>";
-	        movieObj+= "<hr>";
-	    }*/
-	for(var i=0;i<=1;i++){
-		document.getElementById("count" +i).innerHTML = "City : " +data.cities[i].city;
-		document.getElementById("temp" +i).innerHTML = "Temperature : " +data.cities[i].temp;
-		document.getElementById("mintemp" +i).innerHTML = "Min Temperature : " +data.cities[i].min_temp;
-		document.getElementById("maxtemp" +i).innerHTML = "Max Temperature : " +data.cities[i].max_temp;
-		document.getElementById("weather" +i).innerHTML = "Weather : " +data.cities[i].weather;
-		document.getElementById("windspeed" +i).innerHTML = "Wind Speed : " +data.cities[i].wind_speed;
+	var favObj = "";
+	for(var i=0;i<len;i++){
+		favObj+= "<div class='col-md-6'>";
+		favObj+= "<div class='photo'>";
+		favObj+= "<h3>"+(i+1)+ "</h3>";
+		favObj+= "<div class='photo-details'>"
+		favObj+= "City : " +data.cities[i].city + "<br>";
+		favObj+= "Temperature : " +data.cities[i].temp +"<sup>o</sup>C" + "<br>";
+		favObj+= "Min Temperature : " +data.cities[i].min_temp +"<sup>o</sup>C" + "<br>";
+		favObj+= "Max Temperature : " +data.cities[i].max_temp +"<sup>o</sup>C" + "<br>";
+		favObj+= "Weather : " +data.cities[i].weather + "<br>";
+		favObj+= "Wind Speed : " +data.cities[i].wind_speed + " Km/h";
+		favObj+= "</div>";
+		favObj+= "</div>";
+		favObj+= "</div>";
 	}
+	return favObj;
 }
