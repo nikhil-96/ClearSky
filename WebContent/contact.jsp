@@ -7,7 +7,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
 		
-		<title>Compass Starter by Ariona, Rian</title>
+		<title>Clear Sky</title>
 
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
@@ -32,8 +32,8 @@
 					<a href="index.html" class="branding">
 						<img src="images/logo.png" alt="" class="logo">
 						<div class="logo-type">
-							<h1 class="site-title">Company name</h1>
-							<small class="site-description">tagline goes here</small>
+							<h1 class="site-title">Clear Sky</h1>
+							<small class="site-description">Weather Application</small>
 						</div>
 					</a>
 
@@ -41,11 +41,9 @@
 					<div class="main-navigation">
 						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
 						<ul class="menu">
-							<li class="menu-item"><a href="index.html">Home</a></li>
-							<li class="menu-item"><a href="news.html">News</a></li>
-							<li class="menu-item"><a href="live-cameras.html">Live cameras</a></li>
-							<li class="menu-item"><a href="photos.html">Photos</a></li>
-							<li class="menu-item current-menu-item"><a href="contact.html">Contact</a></li>
+							<li class="menu-item"><a href="index.jsp">Home</a></li>
+							<li class="menu-item"><a href="favourites.jsp">Photos</a></li>
+							<li class="menu-item current-menu-item"><a href="contact.jsp">Contact</a></li>
 						</ul> <!-- .menu -->
 					</div> <!-- .main-navigation -->
 
