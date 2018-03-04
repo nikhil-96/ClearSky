@@ -67,7 +67,6 @@
 					<div id="addfav" class="favbutton"></div>
 				</div>
 			</div>
-	 			<div id="myDiv" class="floating-box addtofav"></div>  
 			<br><br><br><br><br>
 			<footer class="site-footer">
 				<div class="container">

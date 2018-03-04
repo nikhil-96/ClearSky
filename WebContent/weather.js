@@ -12,7 +12,7 @@ $(document).ready(function() {
 			if (this.readyState == 4 && this.status == 200) {
 				var data = JSON.parse(this.responseText);
 				//var dataObj = JSON.stringify(myArr);
-				alert(data);
+				//alert(data);
 				city = data.name;
 				weather = data.weather[0].main;
 				temp = Math.ceil(data.main.temp);
@@ -57,7 +57,7 @@ function addToFavourites(){
 	
 	xmlhttp.onreadystatechange = function(){
 		if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+			alert("Added Successfully");
 		}
 	};
 	var params = "city=" +city + "&weather=" +weather+ "&temp=" +temp+ "&min_temp=" +min_temp+ "&max_temp=" +max_temp+ "&wind_speed="+wind_speed + "&action=add";
