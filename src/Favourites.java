@@ -24,17 +24,11 @@ public class Favourites extends HttpServlet {
 	private int count;
 	private String path = "C:\\Users\\Nikhil\\Documents\\Workspace\\ClearSky\\src\\fav.json";
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public Favourites() {
         super();
         // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String action=request.getParameter("action");
@@ -48,7 +42,7 @@ public class Favourites extends HttpServlet {
 			
 				JSONParser parser = new JSONParser();
 			    try {
-					main = (JSONObject) parser.parse(new FileReader(path));
+					main = (JSONObject) parser.parse(new FileReader(path));		//reading json file & get count
 					this.count = Integer.parseInt(String.valueOf(main.get("Count")));
 					
 					//System.out.println(this.count);
@@ -60,7 +54,7 @@ public class Favourites extends HttpServlet {
 				}
 			
 			try {
-				count++;
+				count++;			//if json file doesn't exist create one otherwise append at end
 				if(count>10)
 				{
 					cities.remove(0);
@@ -88,7 +82,7 @@ public class Favourites extends HttpServlet {
 				e.printStackTrace();
 			} finally {
 				response.setContentType("application/json");
-				response.getWriter().write(main.toString());	
+				response.getWriter().write(main.toString());	//sending response to add ajax call
 			}
 		}
 		
@@ -98,7 +92,7 @@ public class Favourites extends HttpServlet {
 			try {
 				JSONObject main = (JSONObject) parser.parse(new FileReader(path));
 				response.setContentType("application/json");
-				response.getWriter().write(main.toString());	
+				response.getWriter().write(main.toString());	//sending response to view ajax call
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}	

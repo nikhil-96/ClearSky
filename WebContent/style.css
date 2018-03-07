@@ -1264,7 +1264,7 @@ form textarea {
         display: inline-block;
         vertical-align: middle; }
       .forecast-container .forecast.today .degree .num {
-        font-size: 70px;
+        font-size: 90px;
         font-size: 6.4285714286rem;
         margin-right: 30px; }
       .forecast-container .forecast.today span {
@@ -1349,56 +1349,6 @@ form textarea {
     appearance: none;
     -webkit-appearance: none;
     color: white; }
-
-.live-camera {
-  margin-bottom: 30px; }
-  .live-camera .live-camera-cover {
-    position: relative;
-    margin-bottom: 20px;
-    cursor: pointer; }
-    .live-camera .live-camera-cover:after {
-      content: " ";
-      width: 45px;
-      height: 45px;
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      background: url(images/play-button.png); }
-    .live-camera .live-camera-cover img {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-width: 100%;
-      border-radius: 5px; }
-  .live-camera .location {
-    margin-bottom: 5px;
-    color: white;
-    font-weight: 300; }
-
-.news {
-  padding-left: 100px;
-  position: relative; }
-  .news:after {
-    content: " ";
-    width: 12px;
-    height: 7px;
-    background: url(images/arrow.png);
-    display: block; }
-  .news .date {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #009ad8;
-    font-size: 24px;
-    font-size: 1.7142857143em; }
-  .news h3 {
-    font-size: 14px;
-    font-size: 1em; }
-    .news h3 a {
-      color: white; }
 
 .arrow-feature {
   list-style-type: none; }
@@ -1506,7 +1456,7 @@ form textarea {
 
 .photo {
   position: relative;
-  padding-left: 10%;
+  padding-left: 50%;
   min-height: 190px;
   border-radius: 10px;
   overflow: hidden;
@@ -1526,37 +1476,6 @@ form textarea {
     font-weight: 300; }
     .photo .photo-title a {
       color: white; }
-
-.star-rating {
-  float: none;
-  overflow: hidden;
-  position: relative;
-  height: 15px;
-  line-height: 15px;
-  font-size: 16px;
-  width: 100px;
-  font-family: 'FontAwesome'; }
-  .star-rating:before {
-    content: "\f005\f005\f005\f005\f005";
-    color: #1e202b;
-    float: left;
-    top: 0;
-    left: 0;
-    position: absolute; }
-  .star-rating span {
-    overflow: hidden;
-    float: left;
-    top: 0;
-    left: 0;
-    position: absolute;
-    padding-top: 1.5em;
-    color: #009ad8;
-    font-size: 16px; }
-  .star-rating span:before {
-    content: "\f005\f005\f005\f005\f005";
-    top: 0;
-    position: absolute;
-    left: 0; }
 
 .contact-details {
   background: #262936;
@@ -1667,7 +1586,3 @@ form textarea {
     .site-footer .social-links a:hover {
       background: #009ad8;
       color: white; }
-      
-.favbutton {
-	margin : 30px;
-}

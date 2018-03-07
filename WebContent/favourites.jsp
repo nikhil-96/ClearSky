@@ -25,7 +25,7 @@
 	</head>
 
 
-	<body onLoad='readJSON()'>
+	<body onLoad='readJSON()'>			<!-- reading data from json file on loading of webpage -->
 		
 		<div class="site-content">
 			<div class="site-header">
@@ -61,6 +61,7 @@
 					</div>
 				</div>
 				
+				<!-- adding data readed from json file to this div id output using innerHTML -->
 				<div class="fullwidth-block">
 					<div class="container">
 						<div class="row" id="output">

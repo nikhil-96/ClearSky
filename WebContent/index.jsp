@@ -51,12 +51,22 @@
 				</div>
 			</div> <!-- .site-header -->
 
-			<div class="hero" data-bg-image="images/img2.jpg">
-				<div class="container find-location">
+			<div class="hero" data-bg-image="images/img4.jpg">
+			<div class="container">
+			<!--  Search bar -->
+			
+					<form class="find-location">
+						<input type="text" name="city" id="cityname" placeholder="Enter a City">
+						<input type="button" id="submitWeather" value="Search">
+					</form>
+
+				</div>
+				<!-- <div class="container find-location">
 						<input type="text" name="city" id="cityname" placeholder="Enter a City">
 						<button id="submitWeather" class="btn btn-primary">Search City</button>
-				</div>
+				</div> -->
 			</div>
+		<!-- Add to Favourites button -->
 		
 			<div class="forecast-table">
 				<div class="container">
@@ -68,6 +78,7 @@
 				</div>
 			</div>
 			<br><br><br><br><br>
+			
 			<footer class="site-footer">
 				<div class="container">
 					<div class="row">

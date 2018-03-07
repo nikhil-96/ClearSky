@@ -1,19 +1,21 @@
 var city,weather,temp,min_temp,max_temp,wind_speed,humidity;
+let $submitWeather=$('#submitWeather');
+var APPID = "3cde70023f333ed0c85fca223f5de840";
+var URL = "http://api.openweathermap.org/data/2.5/weather?q=";
 
-$(document).ready(function() {
-	$("#submitWeather").click(function() {
+$(document).ready(function() {						
+	$submitWeather.click(function() {
 		var xmlHttp = new XMLHttpRequest();
 		var cityname = document.getElementById("cityname").value;
-		var url = "http://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&units=metric" +
-		"&appid=3cde70023f333ed0c85fca223f5de840";
-		xmlHttp.open("GET", url, true);
+		var url = URL + cityname + "&units=metric" + "&appid=" +APPID;		
+		xmlHttp.open("GET", url, true);								//ajax call to openweather api
 		xmlHttp.send();
 		xmlHttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				var data = JSON.parse(this.responseText);
+				var data = JSON.parse(this.responseText);	//getting data from api in form of json data
 				//var dataObj = JSON.stringify(myArr);
 				//alert(data);
-				city = data.name;
+				city = data.name;						//putting data into local variables
 				weather = data.weather[0].main;
 				temp = Math.ceil(data.main.temp);
 				min_temp = data.main.temp_min;
@@ -37,7 +39,7 @@ $(document).ready(function() {
 				cardObj+= "</div>";
 				cardObj+= "</div>";
 				
-				document.getElementById("card").innerHTML = cardObj;
+				document.getElementById("card").innerHTML = cardObj;	//putting data to index page
 				
 				var button = document.createElement("button");
 				
@@ -46,18 +48,18 @@ $(document).ready(function() {
 					addToFavourites();
 
 				}
-				document.getElementById('addfav').replaceWith(button);
+				document.getElementById('addfav').replaceWith(button);		//override addToFav button
 			}
 		}
 	});
 });
 	
-function addToFavourites(){
+function addToFavourites(){								//ajax call to favourites servlet to add data to json
 	var xmlhttp = new XMLHttpRequest();
 	
 	xmlhttp.onreadystatechange = function(){
 		if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-			alert("Added Successfully");
+			alert("Added Successfully");			//after successfully adding data
 		}
 	};
 	var params = "city=" +city + "&weather=" +weather+ "&temp=" +temp+ "&min_temp=" +min_temp+ "&max_temp=" +max_temp+ "&wind_speed="+wind_speed + "&action=add";
@@ -71,7 +73,7 @@ function readJSON(){
 	request.onreadystatechange = function(){
 		if(request.readyState == 4 && request.status==200){
 			var obj=JSON.parse(request.responseText);
-			document.getElementById("output").innerHTML = viewFavourites(obj);
+			document.getElementById("output").innerHTML = viewFavourites(obj);		//adding favobj to output div id in favourites.jsp
 		}
 	};
 	var params = "&action=view";
@@ -82,7 +84,7 @@ function readJSON(){
 function viewFavourites(data){
 	var len = data.Count;
 	var favObj = "";
-	for(var i=0;i<len;i++){
+	for(var i=0;i<len;i++){						//adding json data from file on favourites page cards
 		favObj+= "<div class='col-md-6'>";
 		favObj+= "<div class='photo'>";
 		favObj+= "<h3>"+(i+1)+ "</h3>";
